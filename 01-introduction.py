@@ -22,7 +22,7 @@ print(soup.title)
 print(soup.title.name)
 # 'title' 
 # name指的是标签类型名，非HTML中的name属性
-print(soup.title.string)       # 'The Dormouse's story' # 相当于innerHTML
+print(soup.title.string)       # 'The Dormouse's story' # 类似于innerHTML
 print(type(soup.title.string)) # <class 'bs4.element.NavigableString'>
 # 可以直接遍历
 # 不能被编辑，但是可以被替换成其他的字符串，用replace_with()方法
@@ -35,13 +35,15 @@ print(soup.p)
 print(soup.find_all('p'))
 # 返回所有p标签组成的一个列表
 #------------------------------------
+# print(soup.p['class'])
+# soup.p['class'] = 'nihao'
 print(soup.p['class'])
-soup.p['class'] = 'nihao'
-print(soup.p['class'])
+# print(soup.p.get('class')) 与上面的方法等价
 # 获得p的class属性名 'title'
-# 由于class是多值属性，故返回值一个列表
+# 由于class是多值属性，故返回值一个列表 ['title'] 
 print(soup.p['id'])
 # 获得p的id属性名 'title'
+# id是单值属性
 print(soup.p.attrs)
 # 一个由p的属性名和属性值组成的字典
 #------------------------------------
@@ -54,7 +56,7 @@ print(soup.find(id='link3'))
 
 # 从文档中获取所有a标签
 for link in soup.find_all('a'):
-	print(link.get('href'))
+	print(link['href']) # 或者link.get('href')
 
 # 从文档中获取所有文字内容
 print(soup.get_text)
