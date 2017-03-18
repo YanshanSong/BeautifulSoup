@@ -8,10 +8,26 @@
 # print(L1)
 # print(L2)
 
-import re
+# import re
 
-lis = ["cake","pallc","sd"]
+# lis = ["cake","pallc","sd"]
 
-p = lis.index("pallc")
-print(p)
+# p = lis.index("pallc")
+# print(p)
+# def int():
+# 	a = 3
+# 	b = 4
+# 	return a, b
+
+# a, b = int()
+# print(a, b)
+
+import pymysql
+
+connection = pymysql.connect(host="localhost",
+                                 port=3306,
+                                 user="root",
+                                 password="123456",
+                                 db = "crawl",
+                                 charset="UTF8")
 
